@@ -47,14 +47,13 @@ const BackgroundImg = styled.img`
 
 const Title = styled.h1`
   color: #f6ae9f;
-  font-family: 'Cafe24Shiningstar', 'NEXON Lv2 Gothic Bold', sans-serif;
+  font-family: 'baloo 2', sans-serif;
   font-size: 7vmin;
   font-weight: 600;
   position: relative;
-  right: 10%;
-  top: -40%;
+  top: -20%;
   @media all and (min-width: 1025px) {
-    right: 8%;
+    right: -5%;
     font-size: 5vmax;
   }
 `;
@@ -127,7 +126,7 @@ const Home = () => {
           <Header>
             <BackgroundImg src={People}></BackgroundImg>
             <Title>
-              <Green>웹드라마</Green> 찾아 삼만리
+              <Green>Web Drama</Green> Playground
             </Title>
           </Header>
           <Dramas>
