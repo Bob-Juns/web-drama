@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 // styles
 import styled from 'styled-components';
+import { size } from '../styles/SharedStyle';
 import device from '../styles/MediaQuery';
 
 // apollo
@@ -19,58 +20,6 @@ import AddBtn from '../assets/AddBtn.png';
 
 // hooks
 import useTitle from '../hooks/useTitle';
-
-const Container = styled.main`
-  width: 100vw;
-  min-height: 100vh;
-`;
-
-const Dramas = styled.article`
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 0.75rem;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  grid-gap: 0.75rem;
-
-  position: relative;
-  top: -4vmin;
-
-  ${device.desktop`
-    max-width: 900px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
-    top: -3vmax;
-  `}
-`;
-
-const Edits = styled.aside`
-  width: 2rem;
-  height: 2rem;
-
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
-  z-index: 555;
-
-  ${device.desktop`
-    width: 3rem;
-    height: 3rem;
-
-    right: 2rem;
-    bottom: 3rem;
-  `}
-`;
-
-const EditButton = styled.img`
-  width: 100%;
-  height: 100%;
-`;
 
 const Home = () => {
   const { loading, data } = useQuery(ALL_DRAMAS);
@@ -99,5 +48,57 @@ const Home = () => {
     </Container>
   );
 };
+
+const Container = styled.main`
+  width: 100vw;
+  min-height: 100vh;
+`;
+
+const Dramas = styled.article`
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 ${size.tiny};
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-gap: ${size.tiny};
+
+  position: relative;
+  top: -4vmin;
+
+  ${device.desktop`
+    max-width: 900px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: ${size.base};
+    top: -3vmax;
+  `}
+`;
+
+const Edits = styled.aside`
+  width: calc(2 * ${size.base});
+  height: calc(2 * ${size.base});
+
+  position: fixed;
+  right: ${size.base};
+  bottom: ${size.base};
+
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+  z-index: 555;
+
+  ${device.desktop`
+    width: ${size.huge};
+    height: ${size.huge};
+
+    right: ${size.huge};
+    bottom: ${size.huge};
+  `}
+`;
+
+const EditButton = styled.img`
+  width: 100%;
+  height: 100%;
+`;
 
 export default Home;

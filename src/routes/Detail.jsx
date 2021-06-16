@@ -6,6 +6,7 @@ import { storage } from '../fbase';
 
 //styles
 import styled from 'styled-components';
+import { size, color, screen } from '../styles/SharedStyle';
 import device from '../styles/MediaQuery';
 
 // apollo
@@ -385,7 +386,7 @@ const Background = styled.main`
   width: 100vw;
   min-height: 100vh;
 
-  background-color: #282c35;
+  background-color: ${color.gray};
 
   display: flex;
   justify-content: center;
@@ -394,54 +395,56 @@ const Background = styled.main`
 
 const Wrapper = styled.article`
   width: 100%;
-  max-width: 600px;
+  max-width: ${screen.mobile};
   height: 100%;
 
-  padding: 1.25rem;
+  padding: ${size.medium};
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   ${device.desktop`
-    max-width: 1024px;
+    max-width: ${screen.desktop};
   `}
 `;
 
 const Nav = styled.nav`
   width: 100%;
-  padding-bottom: 0.75rem;
+  padding-bottom: ${size.tiny};
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 
   ${device.tablet`
-    padding-bottom: 1.25rem;
+    padding-bottom: ${size.small};
   `}
 
   ${device.desktop`
-    padding-bottom: 1.75rem;
+    padding-bottom: ${size.large};
   `}
 `;
 
 const GoBack = styled.div`
   color: #fff;
 
-  font-size: 0.75rem;
+  font-size: ${size.tiny};
   cursor: pointer;
 
   ${device.tablet`
-    font-size: 1.25rem;
+    font-size: ${size.medium};
   `}
 `;
 
 const EditBtn = styled.img`
-  width: 1.25rem;
-  height: 1.25rem;
+  width: ${size.medium};
+  height: ${size.medium};
+
+  cursor: pointer;
 
   ${device.tablet`
-    width: 2rem;
-    height: 2rem;
+    width: calc(2 * ${size.base});
+    height: calc(2 * ${size.base});
   `}
 `;
 
@@ -451,7 +454,7 @@ const Group = styled.section`
   ${device.desktop`
     display: flex;
     justify-content: space-between;
-    gap: 1.75rem;
+    gap: ${size.large};
   `}
 `;
 
@@ -459,7 +462,7 @@ const Covers = styled.div`
   width: 100%;
   height: 65vh;
 
-  margin-bottom: 1.75rem;
+  margin-bottom: ${size.large};
 
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 
@@ -488,36 +491,36 @@ const Header = styled.div`
   width: 100%;
   height: 40%;
 
-  margin-top: 1.25rem;
+  margin-top: ${size.medium};
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 0.75rem;
+  gap: ${size.tiny};
 
   ${device.desktop`
-    gap: 1.75rem;
+    gap: ${size.large};
   `}
 `;
 
 const Title = styled.h1`
   color: #fff;
-  font-size: 1.25rem;
+  font-size: ${size.medium};
 
   ${device.tablet`
-    font-size: 1.75rem;
+    font-size: ${size.large};
   `}
 `;
 
 const Summary = styled.p`
   color: #fff;
 
-  font-size: 0.75rem;
+  font-size: ${size.tiny};
   text-align: justify;
   line-height: 1.3;
 
   ${device.tablet`
-    font-size: 1.25rem;
+    font-size: ${size.medium};
   `}
 
   ${device.desktop`
@@ -529,13 +532,13 @@ const Videos = styled.div`
   width: 100%;
   height: 100%;
 
-  margin-top: 1.75rem;
+  margin-top: ${size.large};
 
   display: flex;
   flex-direction: column;
   justify: space-between;
 
-  gap: 0.75rem;
+  gap: ${size.tiny};
 `;
 
 const Subtitles = styled.div`
@@ -546,19 +549,19 @@ const Subtitles = styled.div`
 
 const Subtitle = styled.h3`
   color: #fff;
-  font-size: 1rem;
+  font-size: ${size.base};
 
   ${device.tablet`
-    font-size: 1.25rem;
+    font-size: ${size.medium};
   `}
 `;
 
 const SeeAll = styled.div`
   color: #fff;
-  font-size: 0.75rem;
+  font-size: ${size.tiny};
 
   ${device.tablet`
-    font-size: 1rem;
+    font-size: ${size.base};
   `}
 `;
 
@@ -575,10 +578,10 @@ const Link = styled.a`
 
 const Image = styled.div`
   width: 28vmin;
-  max-width: calc(600px / 3 - 1.125rem);
+  max-width: calc(${screen.mobile} / 3 - ${size.small});
   height: calc(28vmin * 0.6);
-  max-height: calc((600px / 3 - 1.125rem) * 0.6);
-  margin-bottom: 0.75rem;
+  max-height: calc((${screen.mobile} / 3 - ${size.small}) * 0.6);
+  margin-bottom: ${size.tiny};
 
   background-image: url(${(props) => props.image});
   background-size: cover;
@@ -592,29 +595,29 @@ const Image = styled.div`
   }
 
   ${device.desktop`
-    width: calc(1024px / 3 - 1.75rem);
-    max-width: calc(1024px / 3 - 1.75rem);
+    width: calc(${screen.desktop} / 3 - ${size.large});
+    max-width: calc(${screen.desktop} / 3 - ${size.large});
 
-    height: calc((1024px / 3 - 1.75rem) * 0.6);
-    max-height: calc((1024px / 3 - 1.75rem) * 0.6);
+    height: calc((${screen.desktop}/ 3 - ${size.large}) * 0.6);
+    max-height: calc((${screen.desktop} / 3 - ${size.large}) * 0.6);
   `}
 `;
 
 const ListTitle = styled.div`
   width: 28vmin;
-  max-width: calc(600px / 3 - 1.125rem);
+  max-width: calc(${screen.mobile} / 3 - ${size.small});
   color: #fff;
 
-  font-size: 0.75rem;
+  font-size: ${size.tiny};
   text-align: center;
 
   ${device.tablet`
-    font-size: 1rem;
+    font-size: ${size.base};
   `}
 
   ${device.desktop`
-    width: calc(1024px / 3 - 1.75rem);
-    max-width: calc(1024px / 3 - 1.75rem);
+    width: calc(${screen.desktop} / 3 - ${size.large});
+    max-width: calc(${screen.desktop} / 3 - ${size.large});
   `}
 `;
 

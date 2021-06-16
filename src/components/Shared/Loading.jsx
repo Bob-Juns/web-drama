@@ -1,12 +1,15 @@
 import React from 'react';
+
 import styled from 'styled-components';
+import { size, color } from '../../styles/SharedStyle';
+
 import loadingImg from '../../assets/loading.gif';
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background-color: #f1f2f3;
+  background-color: ${color.light};
 
   display: flex;
   justify-content: center;
@@ -14,7 +17,7 @@ const Container = styled.div`
 `;
 
 const Loader = styled.img`
-  width: 80px;
+  width: calc(3 * ${size.large});
 `;
 
 const Loading = () => {

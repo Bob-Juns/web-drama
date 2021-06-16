@@ -1,53 +1,10 @@
 import React from 'react';
+
 import styled from 'styled-components';
+import { size, screen } from '../../styles/SharedStyle';
 import device from '../../styles/MediaQuery';
 
 import { Input, Textarea, File } from './InputSet';
-
-const InputWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-
-  gap: 30px;
-
-  ${device.desktop`
-    height: fit-content;
-  `}
-`;
-
-const ImgWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-
-  gap: 5px;
-
-  ${device.desktop`
-    max-width: 768px;
-  `}
-`;
-
-const Text = styled.div`
-  color: grey;
-  font-size: 0.75rem;
-  margin-right: auto;
-`;
-
-const Preview = styled.img`
-  width: 100%;
-  min-height: 80px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-
-  ${device.desktop`
-    min-height: 200px;
-    `}
-`;
 
 export const TabContent = ({
   onChangeInput,
@@ -233,3 +190,48 @@ export const TabContent = ({
     },
   ];
 };
+
+const InputWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: ${size.large};
+
+  ${device.desktop`
+    height: fit-content;
+  `}
+`;
+
+const ImgWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 5px;
+
+  ${device.desktop`
+    max-width: ${screen.tablet};
+  `}
+`;
+
+const Text = styled.div`
+  color: grey;
+  font-size: ${size.tiny};
+  margin-right: auto;
+`;
+
+const Preview = styled.img`
+  width: 100%;
+  min-height: calc(3 * ${size.large});
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  ${device.desktop`
+    min-height: calc(4 * ${size.huge});
+    `}
+`;

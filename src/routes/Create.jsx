@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 // styles
 import styled from 'styled-components';
+import { color } from '../styles/SharedStyle';
 
 // components
 import Editor from '../components/Editor';
@@ -19,8 +20,6 @@ import { ADD_DRAMA, ALL_DRAMAS } from '../apollo/gql';
 const Container = styled.main`
   width: 100vw;
   min-height: 100vh;
-
-  padding: 5vmax;
 
   background-color: #f9f6f0;
 
@@ -250,15 +249,15 @@ const Create = () => {
         onChangeInput={onChangeInput}
         onChangeFile={onChangeFile}>
         <Button
-          textColor="#e03131"
+          textColor={color.red}
           backgroundColor="transparent"
           onClick={onClickCancel}
           text="취소"
-          style={{ border: '1px solid #e03131' }}
+          style={{ border: `1px solid ${color.red}` }}
         />
         <Button
           textColor="#fff"
-          backgroundColor="#8bc7ab"
+          backgroundColor={color.green}
           onClick={onSubmitCreate}
           text="확인"
         />

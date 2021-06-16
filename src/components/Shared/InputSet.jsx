@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
+import { size, color, screen } from '../../styles/SharedStyle';
 
 import device from '../../styles/MediaQuery';
 
@@ -38,17 +40,17 @@ const _Textarea = styled.textarea`
   width: 100%;
   min-height: 100px;
   padding: 10px 5px;
-  font-size: 1rem;
+  font-size: ${size.base};
 
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 
   &:focus {
-    border: 1px solid #8bc7ab;
+    border: 1px solid ${color.green};
   }
 
   ${device.desktop`
-    min-height: 170px;
+    min-height: calc(3.5 * ${size.huge});
   `}
 `;
 export const Input = ({
@@ -95,12 +97,12 @@ const FileInput = styled.input`
 `;
 
 const FileLabel = styled.label`
-  width: 70px;
+  width: calc(1.5 * ${size.huge});
   height: fit-content;
   padding: 10px 5px;
   color: #fff;
   text-align: center;
-  background-color: #8bc7ab;
+  background-color: ${color.green};
   cursor: pointer;
   border-radius: 5px;
 

@@ -1,43 +1,8 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { size, color } from '../styles/SharedStyle';
 import device from '../styles/MediaQuery';
-
-const Container = styled.header`
-  width: 100%;
-  height: 200px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: #f9f6f0;
-
-  ${device.desktop`
-    height: 300px;
-  `}
-`;
-
-const Title = styled.h1`
-  color: #f6ae9f;
-  font-family: 'baloo 2', sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  ${device.desktop`
-    flex-direction: row;
-    gap: 1rem;
-    font-size: 3rem;
-  `}
-`;
-
-const Green = styled.span`
-  color: #89c7aa;
-`;
 
 const Header = () => {
   return (
@@ -48,5 +13,41 @@ const Header = () => {
     </Container>
   );
 };
+
+const Container = styled.header`
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${color.beige};
+
+  ${device.desktop`
+    height: 300px;
+  `}
+`;
+
+const Title = styled.h1`
+  color: ${color.pink};
+  font-family: 'baloo 2', sans-serif;
+  font-size: calc(2 * ${size.base});
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  ${device.desktop`
+    flex-direction: row;
+    gap:${size.base};
+    font-size: ${size.huge};
+  `}
+`;
+
+const Green = styled.span`
+  color: ${color.green};
+`;
 
 export default Header;

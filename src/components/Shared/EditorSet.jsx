@@ -2,18 +2,29 @@ import React from 'react';
 
 // styles
 import styled from 'styled-components';
+import { size } from '../../styles/SharedStyle';
 import device from '../../styles/MediaQuery';
+
+export const EditorSet = ({ onSubmit, children }) => {
+  return (
+    <>
+      <Editor onSubmit={onSubmit} autoComplete="off">
+        {children}
+      </Editor>
+    </>
+  );
+};
 
 const Editor = styled.form`
   width: 100%;
   height: 100%;
 
-  padding: 30px 20px 20px;
+  padding: ${size.large} ${size.medium} ${size.medium};
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 30px;
+  gap: ${size.large};
 
   background-color: #fff;
 
@@ -31,13 +42,3 @@ const Editor = styled.form`
     border-radius: 0;
   `}
 `;
-
-export const EditorSet = ({ onSubmit, children }) => {
-  return (
-    <>
-      <Editor onSubmit={onSubmit} autoComplete="off">
-        {children}
-      </Editor>
-    </>
-  );
-};

@@ -1,14 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
-
-const _Button = styled.button`
-  width: fit-content;
-  padding: 10px 20px;
-  color: ${(props) => props.textColor};
-  background-color: ${(props) => props.backgroundColor};
-
-  border-radius: 5px;
-`;
+import { size } from '../../styles/SharedStyle';
 
 export const Button = ({
   text,
@@ -27,3 +20,12 @@ export const Button = ({
     </_Button>
   );
 };
+
+const _Button = styled.button`
+  width: fit-content;
+  padding: ${size.tiny} ${size.medium};
+  color: ${(props) => props.textColor};
+  background-color: ${(props) => props.backgroundColor};
+
+  border-radius: 5px;
+`;

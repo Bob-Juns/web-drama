@@ -2,6 +2,7 @@ import React from 'react';
 
 // styles
 import styled from 'styled-components';
+import { size, color, screen } from '../styles/SharedStyle';
 import device from '../styles/MediaQuery';
 
 // components
@@ -79,10 +80,10 @@ const TabWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: ${size.tiny};
 
   ${device.desktop`
-    max-width: 768px;
+    max-width: ${screen.tablet};
     height: fit-content;
     justify-content: flex-start;
   `}
@@ -94,12 +95,12 @@ const Tabs = styled.header`
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap 1px;
+  gap: 1px;
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   ${device.desktop`
-    max-width: 768px;
+    max-width: ${screen.tablet};
 
   `}
 `;
@@ -107,26 +108,26 @@ const Tabs = styled.header`
 const Tab = styled.button`
   padding: 10px;
 
-  font-size: 12px;
+  font-size: ${size.tiny};
   border-radius: 5px 5px 0 0;
   &:focus {
     color: #fff;
     font-weight: 600;
-    background-color: #8bc7ab;
+    background-color: ${color.green};
   }
 `;
 
 const Body = styled.section`
   width: 100%;
-  padding-top: 20px;
+  padding-top: ${size.medium};
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 30px;
+  gap: ${size.large};
 
   ${device.desktop`
-    max-width: 768px;
+    max-width: ${screen.tablet};
 
     flex-direction: row;
     justify-content: space-between;
@@ -138,12 +139,12 @@ const ButtonGroup = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: ${size.tiny};
 
   margin-top: auto;
 
   ${device.desktop`
-    max-width: 768px;
+    max-width: ${screen.tablet};
 
   `}
 `;
