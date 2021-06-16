@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+// apollo
 import { client } from './apollo/client';
 import { ApolloProvider } from '@apollo/client';
 
-import App from './components/App';
+// styles
+import App from './App';
 import GlobalStyle from './styles/GlobalStyle';
 
 render(

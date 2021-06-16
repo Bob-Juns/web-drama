@@ -1,109 +1,73 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// styles
+import styled from 'styled-components';
+import device from '../styles/MediaQuery';
+
+// apollo
 import { useQuery } from '@apollo/client';
 import { ALL_DRAMAS } from '../apollo/gql';
 
+// components
+import Header from '../components/Header';
 import Drama from '../components/Drama';
+import Loading from '../components/Shared/Loading';
 
-import People from '../assets/main-bg.png';
+// assets
 import AddBtn from '../assets/AddBtn.png';
 
+// hooks
 import useTitle from '../hooks/useTitle';
 
 const Container = styled.main`
   width: 100vw;
-  height: auto;
-  @media all and (min-width: 1025px) {
-    min-height: 100vh;
-  }
-`;
-
-const Header = styled.header`
-  width: 100%;
-  height: 30vmin;
-  padding: 0 3vmin 3vmin;
-  color: white;
-  background-color: #f9f6f0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 10vmin;
-  @media all and (min-width: 1025px) {
-    height: 25vmax;
-    padding: 0 10vmax 2.5vmax;
-  }
-`;
-
-const BackgroundImg = styled.img`
-  width: auto;
-  height: 10vmin;
-  @media all and (min-width: 1025px) {
-    width: auto;
-    height: 10vmax;
-  }
-`;
-
-const Title = styled.h1`
-  color: #f6ae9f;
-  font-family: 'baloo 2', sans-serif;
-  font-size: 7vmin;
-  font-weight: 600;
-  position: relative;
-  top: -20%;
-  @media all and (min-width: 1025px) {
-    right: -5%;
-    font-size: 5vmax;
-  }
-`;
-
-const Green = styled.span`
-  color: #89c7aa;
-`;
-
-const Loading = styled.div`
-  height: 100vh;
-  font-size: 2vmax;
-  opacity: 0.5;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
 `;
 
 const Dramas = styled.article`
-  padding: 0 3vmin;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 0.75rem;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  column-gap: 3vmin;
-  row-gap: 3vmin;
+
+  grid-gap: 0.75rem;
+
   position: relative;
-  top: -3vmin;
-  @media all and (min-width: 1025px) {
-    padding: 0 10vmax;
+  top: -4vmin;
+
+  ${device.desktop`
+    max-width: 900px;
     grid-template-columns: repeat(4, 1fr);
-    column-gap: 2vmax;
-    row-gap: 2vmax;
-    top: -2.5vmax;
-  }
+    grid-gap: 1rem;
+    top: -3vmax;
+  `}
 `;
 
 const Edits = styled.aside`
-  display: none;
-  @media all and (min-width: 1025px) {
-    display: block;
-    position: fixed;
-    width: 3vmax;
-    height: 3vmax;
-    right: 4vmax;
-    bottom: 2vmax;
-    filter: drop-shadow(0 0.1vmax 2px #000);
-  }
+  width: 2rem;
+  height: 2rem;
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+  z-index: 555;
+
+  ${device.desktop`
+    width: 3rem;
+    height: 3rem;
+
+    right: 2rem;
+    bottom: 3rem;
+  `}
 `;
 
-const Edit = styled.img`
+const EditButton = styled.img`
   width: 100%;
   height: 100%;
 `;
@@ -117,30 +81,21 @@ const Home = () => {
     changeTitle('Web Drama Playground');
   }, []);
 
+  if (loading) return <Loading />;
+
   return (
     <Container>
-      {loading ? (
-        <Loading>Loading...</Loading>
-      ) : (
-        <>
-          <Header>
-            <BackgroundImg src={People}></BackgroundImg>
-            <Title>
-              <Green>Web Drama</Green> Playground
-            </Title>
-          </Header>
-          <Dramas>
-            {data?.allDramas.map((v) => (
-              <Drama key={v._id} url={v.url} background={v.cover} />
-            ))}
-          </Dramas>
-          <Edits>
-            <Link to="/create">
-              <Edit src={AddBtn}></Edit>
-            </Link>
-          </Edits>
-        </>
-      )}
+      <Header />
+      <Dramas>
+        {data?.allDramas.map((item) => (
+          <Drama key={item._id} url={item.url} background={item.cover} />
+        ))}
+      </Dramas>
+      <Edits>
+        <Link to="/create">
+          <EditButton src={AddBtn} />
+        </Link>
+      </Edits>
     </Container>
   );
 };

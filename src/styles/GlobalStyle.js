@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
+    ${reset}
+
     @font-face {
       font-family: 'NEXON Lv2 Gothic';
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff')
@@ -17,186 +20,67 @@ const GlobalStyle = createGlobalStyle`
       font-style: normal;
     }
 
-    @font-face {
-      font-family: 'Cafe24Shiningstar';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Shiningstar.woff')
-        format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-
     * {
-      box-sizing: border-box;
-    }
+    margin: 0;
+    font-family: 'NEXON Lv2 Gothic', sans-serif;
+    box-sizing: border-box;
+  }
 
-    html,
-    body,
-    div,
-    span,
-    applet,
-    object,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    img,
-    ins,
-    kbd,
-    q,
-    s,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    b,
-    u,
-    i,
-    center,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td,
-    article,
-    aside,
-    canvas,
-    details,
-    embed,
-    figure,
-    figcaption,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    output,
-    ruby,
-    section,
-    summary,
-    time,
-    mark,
-    audio,
-    video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline;
-    }
+  html {
+    font-family: 'NEXON Lv2 Gothic', sans-serif;
+  }
 
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    section {
-      display: block;
-    }
-    body {
-      line-height: 1;
-      font-family: 'NEXON Lv2 Gothic', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -ms-overflow-style: none;
-    }
-    body::-webkit-scrollbar {
-      display: none;
-    }
-    body::-webkit-scrollbar {
-      display: none;
-    }
-    ol,
-    ul {
-      list-style: none;
-    }
-    blockquote,
-    q {
-      quotes: none;
-    }
-    blockquote:before,
-    blockquote:after,
-    q:before,
-    q:after {
-      content: '';
-      content: none;
-    }
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
+  body {
+    font-family: 'NEXON Lv2 Gothic', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -ms-overflow-style: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'NEXON Lv2 Gothic Bold', sans-serif;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'NEXON Lv2 Gothic Bold', sans-serif;
+  }
 
-    a {
-      text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    button {
-      background-color: #fff;
-      border: none;
-      cursor: pointer;
-      &:focus,
-      &:active {
-        outline: none;
-        box-shadow: none;
-      }
+  button,
+  input,
+  select,
+  textarea {
+    background-color: transparent;
+    border: 0;
+    &:focus {
+      outline: none;
+      box-shadow: none;
     }
+  }
 
-    input,
-    textarea {
-      border: 1px solid #000;
-      background-color: transparent;
-      &:focus,
-      &:active {
-        outline: none;
-        box-shadow: none;
-      }
-    }
+  a,
+  button,
+  select {
+    cursor: pointer;
+  }
+
+  input,
+  textarea {
+    cursor: text;
+  }
+
+  ul,
+  ol {
+    padding-left: 0;
+    list-style: none;
+  }
 `;
 
 export default GlobalStyle;
